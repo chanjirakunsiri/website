@@ -1,0 +1,27 @@
+{
+  "name": "website",
+  "version": "1.0.0",
+  "description": "",
+  "private": true,
+  "scripts": {
+    "serve": "parcel index.html --port $PORT --log-level 3",
+    "prebuild": "rm -rf dist && cp -R ./assets ./dist",
+    "build": "parcel build --no-content-hash index.html",
+    "bundle-experiment": "node bundler.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/chanjirakunsiri/website.git"
+  },
+  "keywords": [],
+  "author": "Chanjira Kunsiri",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/chanjirakunsiri/website/issues"
+  },
+  "homepage": "https://github.com/chanjirakunsiri/website#readme",
+  "devDependencies": {
+    "parcel-bundler": "^1.10.3",
+    "sass": "^1.14.3"
+  }
+}
