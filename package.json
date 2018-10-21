@@ -4,11 +4,11 @@
   "description": "",
   "private": true,
   "scripts": {
-    "serve-functions": "netlify-lambda serve functions-src",
+    "serve-functions": "netlify-lambda serve --port 8081 functions-src",
     "build-functions": "netlify-lambda build functions-src",
-    "serve": "parcel index.html --port $PORT --log-level 3 || npm run serve-functions",
+    "serve": "npm run serve-functions | parcel index.html --port $PORT --log-level 3",
     "prebuild": "rm -rf dist && cp -R ./assets ./dist",
-    "build": "parcel build --no-content-hash index.html",
+    "build": "npm run build-functions | parcel build --no-content-hash index.html",
     "bundle-experiment": "node bundler.js"
   },
   "repository": {
