@@ -4,7 +4,9 @@
   "description": "",
   "private": true,
   "scripts": {
-    "serve": "parcel index.html --port $PORT --log-level 3",
+    "serve-functions": "netlify-lambda serve functions-src",
+    "build-functions": "netlify-lambda build functions-src",
+    "serve": "parcel index.html --port $PORT --log-level 3 || npm run serve-functions",
     "prebuild": "rm -rf dist && cp -R ./assets ./dist",
     "build": "parcel build --no-content-hash index.html",
     "bundle-experiment": "node bundler.js"
@@ -21,7 +23,9 @@
   },
   "homepage": "https://github.com/chanjirakunsiri/website#readme",
   "devDependencies": {
+    "netlify-lambda": "^1.0.2",
     "parcel-bundler": "^1.10.3",
     "sass": "^1.14.3"
-  }
+  },
+  "dependencies": {}
 }
